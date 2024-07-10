@@ -14,3 +14,9 @@ const server = new ApolloServer({
   resolvers,
 });
 
+
+
+
+// Start the server
+app.listen(PORT, async () => {
+    console.log(` Server ready at http://localhost:${PORT}`);
