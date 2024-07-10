@@ -15,6 +15,19 @@ const server = new ApolloServer({
 });
 
 
+//Apply the Express middleware for Apollo Server
+app.use(expressMiddleware(server));
+
+// Error handling middleware (will customize as needed)
+app.use(express.static(path.join(__dirname, 'public')));
+
+
+// Error handling middleware (will customize as needed)
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something went wrong!');
+});
+
 
 
 // Start the server
