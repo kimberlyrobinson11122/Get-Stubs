@@ -9,9 +9,11 @@ const Groove = () => {
       <div className="card-header bg-dark text-center">
         <h1>Get Ready to Groove!</h1>
       </div>
+      <div>
       <h2>Here we'll have our groove's/events.</h2>
-      {error && <div>Something went wrong...</div>}
-    </div>
+      </div>
+    
+     </div>
   );
 };
 
