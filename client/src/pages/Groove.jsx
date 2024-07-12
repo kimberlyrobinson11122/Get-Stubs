@@ -10,7 +10,9 @@ const Groove = () => {
         <h1>Get Ready to Groove!</h1>
       </div>
       <div>
-      <h2>Here we'll have our groove's/events.</h2>
+      <h2>TBD on what this does. Some suggestions:</h2>
+      <li> It could link to Groove Guide</li>
+      <li> It could bring you to more details about the artist.</li>
       </div>
     
      </div>
