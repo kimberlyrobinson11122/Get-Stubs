@@ -1,38 +1,52 @@
-const users = [];
-const events = [];
-const categories = [];
+const { User, Event, Category } = require('../models');
 
 const resolvers = {
   Query: {
-    users: () => users,
-    user: (_, { userId }) => users.find(user => user.userId === userId),
-    events: () => events,
-    event: (_, { eventId }) => events.find(event => event.eventId === eventId),
-    categories: () => categories,
-    category: (_, { categoryId }) => categories.find(category => category.categoryId === categoryId),
+    users: async () => {
+      return await User.find().populate('savedEvents');
+    },
+    user: async (_, { userId }) => {
+      return await User.findById(userId).populate('savedEvents');
+    },
+    events: async () => {
+      return await Event.find().populate('categories savedBy');
+    },
+    event: async (_, { eventId }) => {
+      return await Event.findById(eventId).populate('categories savedBy');
+    },
+    categories: async () => {
+      return await Category.find();
+    },
+    category: async (_, { categoryId }) => {
+      return await Category.findById(categoryId);
+    },
   },
   Mutation: {
-    addUser: (_, { userName, email, password }) => {
-      const user = { userId: `${users.length + 1}`, userName, email, password, events: [] };
-      users.push(user);
-      return user;
+    addUser: async (_, { username, email, password }) => {
+      const user = new User({ username, email, password });
+      return await user.save();
     },
-    addEvent: (_, { name, categories: categoryIds }) => {
-      const event = { eventId: `${events.length + 1}`, name, categories: categoryIds.map(id => categories.find(cat => cat.categoryId === id)) };
-      events.push(event);
-      return event;
+    addEvent: async (_, { title, description, date, location, categories, savedBy }) => {
+      const event = new Event({ title, description, date, location, categories, savedBy });
+      return await event.save();
     },
-    addCategory: (_, { name }) => {
-      const category = { categoryId: `${categories.length + 1}`, name };
-      categories.push(category);
-      return category;
+    addCategory: async (_, { name }) => {
+      const category = new Category({ name });
+      return await category.save();
     },
   },
   User: {
-    events: user => user.events.map(eventId => events.find(event => event.eventId === eventId)),
+    savedEvents: async (user) => {
+      return await Event.find({ _id: { $in: user.savedEvents } });
+    },
   },
   Event: {
-    categories: event => event.categories.map(categoryId => categories.find(category => category.categoryId === categoryId)),
+    categories: async (event) => {
+      return await Category.find({ _id: { $in: event.categories } });
+    },
+    savedBy: async (event) => {
+      return await User.findById(event.savedBy);
+    },
   },
 };
 

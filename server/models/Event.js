@@ -1,24 +1,34 @@
-const { Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 const eventSchema = new Schema({
-    title: { 
-        type: String, 
-        required: true 
-    },
-    description: { 
-        type: String, 
-        required: true 
-    },
-    date: { 
-        type: Date, 
-        required: true 
-    },
-    location: { 
-        type: String, 
-        required: true 
-    },
-    // set savedBy to be the ID of the User who created the event
-    savedBy: { type: Schema.Types.ObjectId, ref: 'User' },
+  title: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  date: {
+    type: Date,
+    required: true,
+  },
+  location: {
+    type: String,
+    required: true,
+  },
+  savedBy: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+  },
+  categories: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Category',
+    }
+  ],
 });
 
-module.exports = eventSchema;
+const Event = model('Event', eventSchema);
+
+module.exports = Event;
