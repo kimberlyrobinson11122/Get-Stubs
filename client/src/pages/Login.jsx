@@ -8,8 +8,8 @@ const Login = () => {
       <div className="card-header bg-dark text-center">
         <h1>Please Login to Get Stubs!</h1>
       </div>
-      {error && <div>Something went wrong...</div>}
-    </div>
+
+     </div>
   );
 };
 

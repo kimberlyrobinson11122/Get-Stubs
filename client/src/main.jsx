@@ -9,14 +9,10 @@ import './index.css'
 import Admin from './pages/Admin';
 import Groove from './pages/Groove';
 import Home from './pages/Home';
+import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 import Profile from './pages/Profile';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
 
 const router = createBrowserRouter([
   {
@@ -38,7 +34,7 @@ const router = createBrowserRouter([
         element: <Login />
       }, {
         path: '/profile',
-        element: <profile />
+        element: <Profile />
       },
     ],
   },
