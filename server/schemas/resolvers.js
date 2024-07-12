@@ -8,11 +8,18 @@ const resolvers = {
     user: async (_, { userId }) => {
       return await User.findById(userId).populate('savedEvents');
     },
+    //events: async () => {
+    //  return await Event.find().populate('categories savedBy');
+    //},
     events: async () => {
-      return await Event.find().populate('categories savedBy');
+      return await Event.find().populate('categories');
     },
+    //event: async (_, { eventId }) => {
+    //  return await Event.findById(eventId).populate('categories savedBy');
+    //},
+
     event: async (_, { eventId }) => {
-      return await Event.findById(eventId).populate('categories savedBy');
+      return await Event.findById(eventId).populate('categories');
     },
     categories: async () => {
       return await Category.find();
@@ -35,19 +42,19 @@ const resolvers = {
       return await category.save();
     },
   },
-  User: {
-    savedEvents: async (user) => {
-      return await Event.find({ _id: { $in: user.savedEvents } });
-    },
-  },
-  Event: {
-    categories: async (event) => {
-      return await Category.find({ _id: { $in: event.categories } });
-    },
-    savedBy: async (event) => {
-      return await User.findById(event.savedBy);
-    },
-  },
+  //User: {
+  //  savedEvents: async (user) => {
+  //    return await Event.find({ _id: { $in: user.savedEvents } });
+  //  },
+  //},
+  //Event: {
+  //  categories: async (event) => {
+  //    return await Category.find({ _id: { $in: event.categories } });
+  //  },
+  //  savedBy: async (event) => {
+  //    return await User.findById(event.savedBy);
+  //  },
+  //},
 };
 
-module.exports = { resolvers };
+module.exports = resolvers;
