@@ -6,7 +6,7 @@ import { IoClose, IoMenu } from "react-icons/io5";
 import "../assets/css/Navbar.css";
 
 
-const menuItems = ["Home", "Profile", "Groove"];
+const menuItems = ["Home", "Profile", "Groove", "Admin"];
 
 const NavList = () => {
     const [showMenu, setShowMenu] = useState(false);
