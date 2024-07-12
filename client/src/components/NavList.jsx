@@ -4,9 +4,12 @@ import { NavLink } from "react-router-dom";
 import { IoClose, IoMenu } from "react-icons/io5";
 
 import "../assets/css/Navbar.css";
+import Admin from "../pages/Admin";
 
 
 const menuItems = ["Home", "Profile", "Groove", "Admin"];
+// If you are signed in with an admin role, then "admin" should be removed from the string
+// If Role == !Admin, menuItems.slice()
 
 const NavList = () => {
     const [showMenu, setShowMenu] = useState(false);
