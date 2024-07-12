@@ -8,7 +8,8 @@ const Admin = () => {
         <h1>Welcome to Get Stubs!</h1>
       </div>
       <div className="card-body m-5">
-        <h2>Here are the events we currently have listed</h2>
+        <h2>This is the Admin Page. You should only be able to view this page if you have the admin role.</h2>
+        <h2>The admin role should also make this page viewable from the navbar, but not before.</h2>
       </div>
     </div>
   );

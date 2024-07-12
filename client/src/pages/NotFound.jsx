@@ -8,6 +8,7 @@ function NotFound() {
         <h1>
           No match for <code>{location.pathname}</code>
         </h1>
+        <h2>Return to home page?</h2>
       </div>
     </div>
   );

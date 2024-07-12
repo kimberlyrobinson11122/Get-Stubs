@@ -44,6 +44,11 @@ const NavTabs = () => {
                   Groove
                 </NavLink>
               </li>
+              <li className="nav__item">
+                <NavLink to="/admin" className="nav__link" onClick={closeMenuOnMobile}>
+                  Admin
+                </NavLink>
+              </li>
           </ul>
           <div className="nav__close" id="nav-close" onClick={toggleMenu}>
               <IoClose />
