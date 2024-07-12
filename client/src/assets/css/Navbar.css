@@ -1,0 +1,119 @@
+:root{
+    --dark: #0D0D0D;
+    --light: #E8E0CE;
+    --navlink-color: #D4303D;
+    --accent-color: #0F6926;
+    --sec-link-color: #D9B573;
+    --font-semi-bold: font-weight: 300;
+  }
+  /*.header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background-color: transparent;
+      z-index: var(--z-fixed);
+     }*/
+     
+     .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      height: var(--header-height);
+      /*margin: 1rem;*/
+     }
+  
+     @media screen and (min-width: 768px) {
+        .nav{
+          display: block;
+        }
+      
+     }
+     
+     .nav__logo {
+      color: var(--first-color);
+      transition: color 0.4s;
+      font-size: var(--h2-font-size);
+      font-family: var(--second-font);
+     }
+     
+     .nav__toggle,
+     .nav__close {
+      font-size: 1.5rem;
+      color: var(--dark);
+      cursor: pointer;
+     }
+     
+     .nav__cta {
+      background-color: var(--first-color);
+      color: var(--title-color);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      padding: 0.75rem 1.5rem;
+     }
+     .nav__list {
+      display: flex;
+      flex-direction: column;
+      row-gap: 2.5rem;
+      list-style-type: none;
+     }
+     
+     .nav__link {
+      color: var(--navlink-color);
+      font-weight: var(--font-semi-bold);
+      transition: color 0.4s;
+      text-transform: uppercase;
+     }
+     
+     .nav__link:hover, .nav__link.active {
+      color: var(--navlink-color);
+      text-decoration: underline;
+     }
+     
+     .nav__close {
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+     }
+     
+     .show-menu {
+      right: 0;
+     }
+  
+     @media screen and (max-width: 1150px) {
+      .nav__menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        background-color: hsla(0, 0%, 6%, 0.2);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        width: 80%;
+        height: 100%;
+        padding: 6rem 3rem 0;
+        transition: right 0.4s;
+      }
+  
+      .show-menu{
+          right: 0;
+      }
+     }
+  
+     @media screen and (min-width: 1150px) {
+      .nav {
+        height: calc(var(--header-height) + 1rem);
+      }
+      .nav__toggle,
+      .nav__close {
+        display: none;
+      }
+     
+      .nav__list {
+        /*flex-direction: row;*/
+        column-gap: 2.5rem;
+      }
+     }
+     
