@@ -2,21 +2,25 @@ const { gql } = require('apollo-server');
 
 const typeDefs = gql`
   type User {
-    userId: ID!
-    userName: String!
+    id: ID!
+    username: String!
     email: String!
-    password: String!
-    events: [Event]!
+    eventCount: Int
+    savedEvents: [Event]
   }
 
   type Event {
-    eventId: ID!
-    name: String!
-    categories: [Category]!
+    id: ID!
+    title: String!
+    description: String!
+    date: String!
+    location: String!
+    categories: [Category]
+    savedBy: User
   }
 
   type Category {
-    categoryId: ID!
+    id: ID!
     name: String!
   }
 
@@ -30,10 +34,10 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addUser(userName: String!, email: String!, password: String!): User
-    addEvent(name: String!, categories: [ID]!): Event
+    addUser(username: String!, email: String!, password: String!): User
+    addEvent(title: String!, description: String!, date: String!, location: String!, categories: [ID!], savedBy: ID!): Event
     addCategory(name: String!): Category
   }
 `;
 
-module.exports = { typeDefs };
+module.exports = typeDefs;

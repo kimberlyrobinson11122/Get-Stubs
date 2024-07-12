@@ -1,17 +1,21 @@
 const express = require('express');
-const { ApolloServer } = require('@apollo/server');
-const { expressMiddleware } = require('@apollo/server/express4');
+const { ApolloServer } = require('@apollo/server-express');
 const path = require('path');
 const { authMiddleware } = require('./utils/auth');
-
 const { typeDefs, resolvers } = require('./schemas');
-const db = require('./config/connection');
+const connectDB = require('./config/db');
 
 const PORT = process.env.PORT || 3000;
 const app = express();
+
+// Connect to the database
+connectDB();
+
+// Initialize Apollo Server
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  context: ({ req }) => ({ req, authMiddleware }), // Add context if needed
 });
 
 
