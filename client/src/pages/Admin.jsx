@@ -5,7 +5,7 @@ const Admin = () => {
   return (
     <div className="card bg-white card-rounded w-50">
       <div className="card-header bg-dark text-center">
-        <h1>Welcome to Tech Matchup!</h1>
+        <h1>Welcome to Get Stubs!</h1>
       </div>
       <div className="card-body m-5">
         <h2>Here are the events we currently have listed</h2>
