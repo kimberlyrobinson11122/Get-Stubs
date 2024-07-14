@@ -1,13 +1,16 @@
 //import { useLocation } from 'react-router-dom';
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { IoClose, IoMenu } from "react-icons/io5";
+// import { IoClose, IoMenu } from "react-icons/io5";
+import { IoClose } from "react-icons/io5";
+import { IoMenu } from "react-icons/io5";
+
 
 import "../assets/css/Navbar.css";
 import Admin from "../pages/Admin";
 
 
-const menuItems = ["Home", "Profile", "Groove", "Admin"];
+const menuItems = [{name: "Home", url:`/`}, {name: "Profile", url:`/profile`}, {name: "Groove", url:`/groove`}, {name: "Admin", url:`/admin`}];
 // If you are signed in with an admin role, then "admin" should be removed from the string
 // If Role == !Admin, menuItems.slice()
 
@@ -30,10 +33,10 @@ const NavList = () => {
                 <ul className="nav nav__list">
                 {
                     menuItems.map((item) => (
-                        <li className="nav__item" key={item}>
-                            <NavLink to={`/${item}`} className="nav__link" activeclassname="active" 
+                        <li className="nav__item" key={item.name}>
+                            <NavLink to={`${item.url}`} className="nav__link" activeclassname="active" 
                             onClick={closeMenuOnMobile}>
-                            {item}
+                            {item.name}
                             </NavLink>
                         </li>
                     ))
