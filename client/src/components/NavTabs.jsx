@@ -1,7 +1,9 @@
 //import { useLocation } from 'react-router-dom';
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { IoClose, IoMenu } from "react-icons/io5";
+// import { IoClose, IoMenu } from "react-icons/io5";
+import { IoClose } from "react-icons/io5";
+import { IoMenu } from "react-icons/io5";
 
 import "../assets/css/Navbar.css";
 
