@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useMutation, useQuery } from '@apollo/client';
+import { Link } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+
 
 const About = () => {
     return (
