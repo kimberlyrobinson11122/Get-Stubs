@@ -1,12 +1,13 @@
 const { User, Event, Category } = require('../models');
+const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
   Query: {
     users: async () => {
-      return await User.find().populate('savedEvents');
+      return User.find();
     },
     user: async (_, { userId }) => {
-      return await User.findById(userId).populate('savedEvents');
+      return User.findOne({ _id: userId });
     },
     //events: async () => {
     //  return await Event.find().populate('categories savedBy');
@@ -29,9 +30,27 @@ const resolvers = {
     },
   },
   Mutation: {
-    addUser: async (_, { username, email, password }) => {
-      const user = new User({ username, email, password });
-      return await user.save();
+    addUser: async (parent, { username, email, password }) => {
+      const user = await User.create({ username, email, password });
+      const token = signToken(user);
+
+      return { token, user };
+    },
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
+
+      if (!user) {
+        throw AuthenticationError;
+      }
+
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw AuthenticationError;
+      }
+
+      const token = signToken(user);
+      return { token, user };
     },
     addEvent: async (_, { title, description, date, location, categories, savedBy }) => {
       const event = new Event({ title, description, date, location, categories, savedBy });

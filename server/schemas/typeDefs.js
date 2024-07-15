@@ -1,14 +1,15 @@
 const typeDefs = `
   type User {
-    id: ID!
-    username: String!
+    _id: ID
+    username: String
     email: String!
+    password: String
     eventCount: Int
     savedEvents: [Event]
   }
 
   type Event {
-    id: ID!
+    _id: ID!
     title: String!
     description: String!
     date: String!
@@ -17,13 +18,18 @@ const typeDefs = `
   }
 
   type Category {
-    id: ID!
+    _id: ID!
     name: String!
+  }
+
+  type Auth {
+    token: ID!
+    user: User
   }
 
   type Query {
     users: [User]
-    user(_id: ID!): User
+    user(userId: ID!): User
     events: [Event]
     event(_id: ID!): Event
     categories: [Category]
@@ -31,7 +37,8 @@ const typeDefs = `
   }
 
   type Mutation {
-    addUser(username: String!, email: String!, password: String!): User
+    addUser(username: String!, email: String!, password: String!): Auth
+    login(email: String!, password: String!): Auth
     addEvent(title: String!, description: String!, date: String!, location: String!, categories: [ID!]): Event
     addCategory(name: String!): Category
   }
