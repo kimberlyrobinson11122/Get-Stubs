@@ -10,7 +10,8 @@
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server/seeders && node seed.js",
     "heroku-postbuild": "cd client && npm install && npm run build",
-    "start": "cd server && npm start"
+    "start": "cd server && npm start",
+    "devstart": "concurrently \"cd server && npm run dev\" \"cd client && npm run dev\""
   },
   "author": "",
   "license": "ISC",
