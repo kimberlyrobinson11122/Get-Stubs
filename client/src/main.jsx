@@ -5,7 +5,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.jsx'
 import './index.css'
 
-
 import Admin from './pages/Admin';
 import Groove from './pages/Groove';
 import Home from './pages/Home';

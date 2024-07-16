@@ -18,7 +18,7 @@
      .nav {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: space-evenly;
       position: relative;
       height: var(--header-height);
       /*margin: 1rem;*/
@@ -69,7 +69,8 @@
      }
      
      .nav__link:hover, .nav__link.active {
-      color: var(--navlink-color);
+      /*color: var(--navlink-color);*/
+      color:#fff;
       text-decoration: underline;
      }
      
@@ -105,6 +106,7 @@
      @media screen and (min-width: 1150px) {
       .nav {
         height: calc(var(--header-height) + 1rem);
+        padding: 20px;
       }
       .nav__toggle,
       .nav__close {
@@ -112,7 +114,7 @@
       }
      
       .nav__list {
-        /*flex-direction: row;*/
+        flex-direction: row;
         column-gap: 2.5rem;
       }
      }
