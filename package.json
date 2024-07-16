@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "develop": "concurrently \"cd server && npm run dev\" \"cd client && npm run dev\"",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "install": "cd server && npm i && cd ../client && npm i"
   },
   "author": "",
   "license": "ISC",
