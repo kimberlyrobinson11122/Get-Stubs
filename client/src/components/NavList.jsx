@@ -1,13 +1,14 @@
 //import { useLocation } from 'react-router-dom';
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-// import { IoClose, IoMenu } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
 import { IoMenu } from "react-icons/io5";
 
 
 import "../assets/css/Navbar.css";
 import Admin from "../pages/Admin";
+
+import "../assets/css/Navbar.css";
 
 
 const menuItems = [{name: "Home", url:`/`}, {name: "Profile", url:`/profile`}, {name: "Groove", url:`/groove`}, {name: "Admin", url:`/admin`}];
@@ -28,7 +29,7 @@ const NavList = () => {
     };
 
     return (
-        <nav className="nav container">
+        <nav className="nav">
             <div className={`nav__menu ${showMenu ? "show-menu" : ""}`}>
                 <ul className="nav nav__list">
                 {
