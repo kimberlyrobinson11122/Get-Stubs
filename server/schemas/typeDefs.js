@@ -9,17 +9,16 @@ const typeDefs = `
   }
 
   type Event {
-    _id: ID!
-    title: String!
-    description: String!
-    date: String!
-    location: String!
-    categories: [Category]
+    _id: ID
+    title: String
+    description: String
+    date: String
+    location: String
   }
 
   type Category {
-    _id: ID!
-    name: String!
+    _id: ID
+    name: String
   }
 
   type Auth {
@@ -31,15 +30,15 @@ const typeDefs = `
     users: [User]
     user(userId: ID!): User
     events: [Event]
-    event(_id: ID!): Event
+    event(eventId: ID!): Event
     categories: [Category]
-    category(_id: ID!): Category
+    category(categoryId: ID!): Category
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addEvent(title: String!, description: String!, date: String!, location: String!, categories: [ID!]): Event
+    addEvent(title: String!, description: String!, date: String!, location: String!): Event
     addCategory(name: String!): Category
   }
 `;
