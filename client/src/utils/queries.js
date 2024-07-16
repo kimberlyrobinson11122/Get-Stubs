@@ -35,17 +35,12 @@ export const GET_USERS = gql`
  }`;
 
  export const GET_EVENTS = gql`
- query events {
+ query Events {
     events {
-        _id
-        title
-        description
-        date
-        location
-        savedBy {
-            _id
-            username
-            email
-        }
+      date
+      description
+      location
+      title
+      _id
     }
- }`;
+  }`
