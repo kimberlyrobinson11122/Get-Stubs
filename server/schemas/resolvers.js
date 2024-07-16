@@ -60,6 +60,23 @@ const resolvers = {
       const category = await Category.create({ name });
       return category;
     },
+    saveEvent: async (_, { eventId, userId }) => {
+      return await User.findByIdAndUpdate
+        (
+          userId,
+          { $addToSet: { savedEvents: eventId } },
+          { new: true }
+        ).populate('savedEvents');
+    },
+    removeEvent: async (_, { eventId, userId }) => {
+      return await User.findByIdAndUpdate
+        (
+          userId,
+          { $pull: { savedEvents: eventId } },
+          { new: true }
+        ).populate('savedEvents');
+    }
+
   },
 };
 
