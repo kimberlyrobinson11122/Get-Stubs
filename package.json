@@ -8,7 +8,8 @@
     "develop": "concurrently \"cd server && npm run dev\" \"cd client && npm run dev\"",
     "watch": "webpack --watch",
     "install": "cd server && npm i && cd ../client && npm i",
-    "heroku-postbuild": "cd client && npm install && npm run build
+    "heroku-postbuild": "cd client && npm install && npm run build",
+    "start": "cd server && npm start"
   },
   "author": "",
   "license": "ISC",
