@@ -15,7 +15,7 @@ function App() {
     <ApolloProvider client={client}>
       <Header />
       <div className="flex-column justify-center align-center min-100-vh bg-primary">
-        <Home />
+        <Outlet />
       </div>
       <Footer />
     </ApolloProvider>
