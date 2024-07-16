@@ -2,7 +2,7 @@
   "name": "get-stubs",
   "version": "1.0.0",
   "engines": {
-    "node": "22.x"
+    "node": "22.2.0"
   },
   "description": "",
   "main": "index.js",
