@@ -34,6 +34,8 @@ const typeDefs = `
     addUser(username: String!, email: String!, password: String!): User
     addEvent(title: String!, description: String!, date: String!, location: String!, categories: [ID!]): Event
     addCategory(name: String!): Category
+    saveEvent(eventId: ID!, userId: ID!): User
+    removeEvent(eventId: ID!, userId: ID!): User
   }
 `;
 

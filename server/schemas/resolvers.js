@@ -41,6 +41,23 @@ const resolvers = {
       const category = new Category({ name });
       return await category.save();
     },
+    saveEvent: async (_, { eventId, userId }) => {
+      return await User.findByIdAndUpdate
+        (
+          userId,
+          { $addToSet: { savedEvents: eventId } },
+          { new: true }
+        ).populate('savedEvents');
+    },
+    removeEvent: async (_, { eventId, userId }) => {
+      return await User.findByIdAndUpdate
+        (
+          userId,
+          { $pull: { savedEvents: eventId } },
+          { new: true }
+        ).populate('savedEvents');
+    }
+
   },
   //User: {
   //  savedEvents: async (user) => {
