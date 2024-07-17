@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { IoClose, IoMenu } from "react-icons/io5";
+import Auth from "../utils/auth";
 
 import "../assets/css/Navbar.css";
 
@@ -14,7 +15,7 @@ const menuItems = [
 const NavList = () => {
   const [showMenu, setShowMenu] = useState(false);
   const navigate = useNavigate();
-  const user = localStorage.getItem('user'); // Check user login state
+  const user = Auth.getProfile(); // Check user login state
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -26,9 +27,11 @@ const NavList = () => {
     }
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem('user'); // Clear user data
-    navigate('/home'); // Redirect to home page
+  const handleLogout = (event) => {
+    event.preventDefault();
+    Auth.logout(); // Log user out
+    // alert("You have been logged out.");
+    navigate('/'); // Redirect to home page
   };
 
   return (
@@ -39,7 +42,7 @@ const NavList = () => {
             .filter(item => item.name !== "Admin" || user) // Only show Admin if user is logged in
             .map(item => (
               <li className="nav__item" key={item.name}>
-                <NavLink to={item.url} className="nav__link" activeClassName="active" onClick={closeMenuOnMobile}>
+                <NavLink to={item.url} className="nav__link active" onClick={closeMenuOnMobile}>
                   {item.name}
                 </NavLink>
               </li>
@@ -52,7 +55,7 @@ const NavList = () => {
             </li>
           ) : (
             <li className="nav__item">
-              <NavLink to="/login" className="nav__link" activeClassName="active" onClick={closeMenuOnMobile}>
+              <NavLink to="/login" className="nav__link active" onClick={closeMenuOnMobile}>
                 Login
               </NavLink>
             </li>
