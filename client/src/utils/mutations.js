@@ -7,7 +7,8 @@ export const ADD_USER = gql`
       username
       email
     }
-  }`;
+  }`
+;
 
 export const ADD_EVENT = gql`
   mutation addEvent($title: String!, $description: String!, $date: String!, $location: String!) {
@@ -18,4 +19,18 @@ export const ADD_EVENT = gql`
       date
       location
     }
-  }`;
+  }`
+;
+
+export const LOGIN_USER = gql`
+  mutation login($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
+      token
+      profile {
+        _id
+        name
+      }
+    }
+  }
+`
+;
