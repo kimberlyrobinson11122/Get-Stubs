@@ -8,5 +8,5 @@ db.once('open', async() =>{
     await cleanDB('Event', 'events');
     
     const events = await Event.insertMany(eventData);    
-
+  process.exit();
 })
