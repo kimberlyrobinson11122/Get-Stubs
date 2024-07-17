@@ -1,6 +1,10 @@
 {
   "name": "get-stubs",
   "version": "1.0.0",
+  "engines": {
+    "node": "22.2.0",
+    "npm": "10.7.0"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,9 +12,9 @@
     "develop": "concurrently \"cd server && npm run dev\" \"cd client && npm run dev\"",
     "watch": "webpack --watch",
     "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server/seeders && node seed.js",
     "heroku-postbuild": "cd client && npm install && npm run build",
-    "start": "cd server && npm start",
-    "seed": "cd server/seeders && node seed.js"
+    "start": "cd server && npm start"
 
   },
   "author": "",
