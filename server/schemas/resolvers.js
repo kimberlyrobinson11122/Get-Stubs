@@ -79,13 +79,13 @@ const resolvers = {
       throw AuthenticationError;
     },
 
-    removeEvent: async (_, { eventId, userId }) => {
-      return await User.findByIdAndUpdate
+    removeEvent: async (_, { eventId },context) => {
+      return await User.findOneAndUpdate
         (
-          userId,
+          {_id: context.user._id},
           { $pull: { savedEvents: eventId } },
           { new: true }
-        ).populate('savedEvents');
+        );
     }
 
   },
