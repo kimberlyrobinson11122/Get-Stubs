@@ -7,7 +7,7 @@ const resolvers = {
       return User.find();
     },
     user: async (_, { userId }) => {
-      return User.findOne({ _id: userId });
+      return User.findOne({ _id: userId }).populate("savedEvents");
     },
     //events: async () => {
     //  return await Event.find().populate('categories savedBy');

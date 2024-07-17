@@ -4,39 +4,12 @@ import { useQuery } from '@apollo/client';
 import styles from "./Home.module.css";
 import {GET_EVENTS} from "../utils/queries";
 
-// need seeds.js file 
-
 const Home = () => {
   const {data, loading, error} = useQuery(GET_EVENTS)
   console.log(data);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
-
-  // this fake event data
-  // const data = [
-  //   {
-  //     id: '1',
-  //     title: 'Event 1',
-  //     description: 'This is event 1 description',
-  //     date: '2022-01-01',
-  //     location: 'Event 1 Location'
-  //   },
-  //   {
-  //     id: '2',
-  //     title: 'Event 2',
-  //     description: 'This is event 2 description',
-  //     date: '2022-02-02',
-  //     location: 'Event 2 Location'
-  //   },
-  //   {
-  //     id: '3',
-  //     title: 'Event 3',
-  //     description: 'This is event 3 description',
-  //     date: '2022-03-03',
-  //     location: 'Event 3 Location'
-  //   }
-  // ];
 
   return (
     <div className="card bg-white card-rounded w-50">
@@ -62,3 +35,28 @@ const Home = () => {
 };
 
 export default Home;
+
+  // this fake event data
+  // const data = [
+  //   {
+  //     id: '1',
+  //     title: 'Event 1',
+  //     description: 'This is event 1 description',
+  //     date: '2022-01-01',
+  //     location: 'Event 1 Location'
+  //   },
+  //   {
+  //     id: '2',
+  //     title: 'Event 2',
+  //     description: 'This is event 2 description',
+  //     date: '2022-02-02',
+  //     location: 'Event 2 Location'
+  //   },
+  //   {
+  //     id: '3',
+  //     title: 'Event 3',
+  //     description: 'This is event 3 description',
+  //     date: '2022-03-03',
+  //     location: 'Event 3 Location'
+  //   }
+  // ];
