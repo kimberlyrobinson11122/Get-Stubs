@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import Home from './pages/Home';
+import NavList from './components/NavList';
 
 const client = new ApolloClient({
   uri: '/graphql',

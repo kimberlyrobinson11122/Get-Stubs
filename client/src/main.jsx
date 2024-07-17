@@ -42,6 +42,9 @@ const router = createBrowserRouter([
   },
 ]);
 
+// produce login page button in the navbar if user is not logged in
+
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <RouterProvider router={router} />
 );
