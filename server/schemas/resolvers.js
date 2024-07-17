@@ -60,13 +60,23 @@ const resolvers = {
       const category = await Category.create({ name });
       return category;
     },
-    saveEvent: async (_, { eventId, userId }) => {
-      return await User.findByIdAndUpdate
+    //saveEvent: async (_, { eventId, userId }) => {
+    //  return await User.findByIdAndUpdate
+    //    (
+    //      userId,
+    //      { $addToSet: { savedEvents: eventId } },
+    //      { new: true }
+    //    ).populate('savedEvents');
+    //},
+    saveEvent: async (_, {userId, event }, context) => {
+      if(context.user){
+        return await User.findByIdAndUpdate
         (
-          userId,
-          { $addToSet: { savedEvents: eventId } },
+          {_id: userId},
+          { $addToSet: { savedEvents: event } },
           { new: true }
-        ).populate('savedEvents');
+        );
+      }
     },
     removeEvent: async (_, { eventId, userId }) => {
       return await User.findByIdAndUpdate

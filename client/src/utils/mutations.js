@@ -23,32 +23,21 @@ export const ADD_EVENT = gql`
       date
       location
     }
-  }`
-;
+  }`;
 
-export const LOGIN_USER = gql`
-mutation Login($email: String!, $password: String!) {
-  login(email: $email, password: $password) {
-    token
-    user {
-      username
-      eventCount
-      email
+  export const SAVE_EVENT = gql`
+  mutation saveEvent($eventId: ID!, $userId: ID!, $title: String!, $description: String, $date: String, $location: String!) {
+    saveEvent(eventId: $eventId, userId: $userId, title: $title, description: $description, date: $date, location: $location) {
       _id
+        username
+        email
+        savedEvents {
+          id
+          title
+          description
+          date
+          location
+        }
     }
   }
-}
-`
-;
-
-// export const ADD_PROFILE = gql`
-//   mutation addProfile($name: String!, $email: String!, $password: String!) {
-//     addProfile(name: $name, email: $email, password: $password) {
-//       token
-//       profile {
-//         _id
-//         name
-//       }
-//     }
-//   }
-// `;
+`;

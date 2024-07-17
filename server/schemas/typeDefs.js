@@ -32,6 +32,7 @@ const typeDefs = `
     event(eventId: ID!): Event
     categories: [Category]
     category(categoryId: ID!): Category
+    me: User
   }
 
   type Mutation {
@@ -39,7 +40,7 @@ const typeDefs = `
     login(email: String!, password: String!): Auth
     addEvent(title: String!, description: String!, date: String!, location: String!): Event
     addCategory(name: String!): Category
-    saveEvent(eventId: ID!, userId: ID!): User
+    saveEvent(eventId: ID!, userId: ID!, title: String, description: String, date: String, location: String ): User
     removeEvent(eventId: ID!, userId: ID!): User
   }
 `;

@@ -44,19 +44,20 @@ export const GET_EVENTS = gql`
       title
       _id
     }
-  }
-`;
+  }`;
 
-export const GET_SAVED_EVENTS = gql`
-  query SavedEvents($userId: ID!) {
-    user(userId: $userId) {
+  export const QUERY_ME = gql`
+  query me {
+    me {
       _id
+      username
+      email
       savedEvents {
-        title
-        description
+        _id
         date
+        description
         location
-        savedBy
+        title
       }
     }
   }
