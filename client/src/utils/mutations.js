@@ -54,18 +54,12 @@ mutation Login($email: String!, $password: String!) {
 // `;
 
   export const SAVE_EVENT = gql`
-  mutation saveEvent($eventId: ID!, $userId: ID!, $title: String!, $description: String, $date: String, $location: String!) {
-    saveEvent(eventId: $eventId, userId: $userId, title: $title, description: $description, date: $date, location: $location) {
+  mutation saveEvent($eventId: ID!) {
+    saveEvent(eventId: $eventId) {
       _id
         username
         email
-        savedEvents {
-          id
-          title
-          description
-          date
-          location
-        }
+        savedEvents
     }
   }
 `;

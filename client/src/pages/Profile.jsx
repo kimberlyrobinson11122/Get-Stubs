@@ -1,6 +1,6 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { GET_SAVED_EVENTS } from '../utils/queries';
+//import { GET_SAVED_EVENTS } from '../utils/queries';
 import Auth from '../utils/auth';
 
 const Profile = ({ userId }) => {

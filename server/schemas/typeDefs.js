@@ -4,7 +4,7 @@ const typeDefs = `
     username: String
     email: String!
     eventCount: Int
-    savedEvents: [Event]
+    savedEvents: [ID]
   }
 
   type Event {
@@ -40,7 +40,7 @@ const typeDefs = `
     login(email: String!, password: String!): Auth
     addEvent(title: String!, description: String!, date: String!, location: String!): Event
     addCategory(name: String!): Category
-    saveEvent(eventId: ID!, userId: ID!, title: String, description: String, date: String, location: String ): User
+    saveEvent(eventId: ID!): User
     removeEvent(eventId: ID!, userId: ID!): User
   }
 `;

@@ -6,13 +6,7 @@ export const GET_USERS = gql`
       _id
       username
       email
-      savedEvents {
-        title
-        description
-        date
-        location
-        savedBy
-      }
+      savedEvents
     }
   }
 `;
@@ -21,13 +15,7 @@ export const GET_USER = gql`
 query Query($userId: ID!) {
   user(userId: $userId) {
     _id
-    savedEvents {
-      title
-      description
-      location
-      date
-      _id
-    }
+    savedEvents
     email
     eventCount
     username
@@ -52,13 +40,7 @@ export const GET_EVENTS = gql`
       _id
       username
       email
-      savedEvents {
-        _id
-        date
-        description
-        location
-        title
-      }
+      savedEvents
     }
   }
 `;

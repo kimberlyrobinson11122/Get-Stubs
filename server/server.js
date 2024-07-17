@@ -17,7 +17,7 @@ const secret = 'your_jwt_secret'; // Should be stored in environment variables
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  context: ({ req }) => ({ req, authMiddleware }), // Add context if needed
+  //context: ({ req }) => ({ req, authMiddleware }), // Add context if needed
 });
 
 const startApolloServer = async () => {
@@ -28,7 +28,10 @@ const startApolloServer = async () => {
     app.use(express.urlencoded({ extended: true }));
     app.use(express.json());
 
-    app.use('/graphql', expressMiddleware(server));
+  //app.use('/graphql', expressMiddleware(server));
+  app.use('/graphql', expressMiddleware(server, {
+    context: authMiddleware
+  }));
 
     // Define the login route directly
     app.post('/api/auth/login', async (req, res) => {
