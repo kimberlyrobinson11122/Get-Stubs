@@ -26,8 +26,13 @@ const Home = () => {
   const userData = me?.data;
 
   //getting the saved events for the current user
-  const mySavedEvents = (userData?.me.savedEvents || []);
-  const mySavedEventIds = mySavedEvents.map(event => event._id);
+  const mySavedEventIds = (userData?.me.savedEvents || []);
+
+  useEffect(() => {
+    if (!me.loading) {
+      setSavedEventIds([...mySavedEventIds]);
+    }
+  }, [mySavedEventIds]);
 
   const [saveEvent] = useMutation(SAVE_EVENT);
 
@@ -65,6 +70,7 @@ const Home = () => {
       <div className={`card-body ${styles.cardBody}`}>
         {data.events.map(event => (
           <div key={event._id} className={`event-card ${styles.customCardBody}`}>
+            <h3>{event.title}</h3>
             <p>{event.description}</p>
             <p>Date: {new Date(parseInt(event.date)).toLocaleDateString()}</p>
             <p>Time: {new Date(parseInt(event.date)).toLocaleTimeString()}</p>
