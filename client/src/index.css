@@ -54,6 +54,7 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  margin-bottom: 20px;
 }
 
 button {
@@ -98,8 +99,17 @@ button:focus-visible {
 
 .footer{
   padding: 20px;
+  color: #fff;
 }
 
 .header a{
   color: #fff;
+}
+
+button{
+  margin-top: 30px;
+}
+
+button.nav__link{
+  margin-top: 0px;
 }

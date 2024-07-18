@@ -52,3 +52,25 @@ mutation Login($email: String!, $password: String!) {
 //     }
 //   }
 // `;
+
+  export const SAVE_EVENT = gql`
+  mutation saveEvent($eventId: ID!) {
+    saveEvent(eventId: $eventId) {
+      _id
+        username
+        email
+        savedEvents
+    }
+  }
+`;
+
+export const REMOVE_EVENT = gql`
+  mutation removeEvent($eventId: ID!) {
+    removeEvent(eventId: $eventId) {
+      _id
+      username
+      email
+      savedEvents
+    }
+  }
+`;

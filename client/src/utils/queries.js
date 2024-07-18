@@ -6,13 +6,7 @@ export const GET_USERS = gql`
       _id
       username
       email
-      savedEvents {
-        title
-        description
-        date
-        location
-        savedBy
-      }
+      savedEvents
     }
   }
 `;
@@ -21,13 +15,7 @@ export const GET_USER = gql`
 query Query($userId: ID!) {
   user(userId: $userId) {
     _id
-    savedEvents {
-      title
-      description
-      location
-      date
-      _id
-    }
+    savedEvents
     email
     eventCount
     username
@@ -44,20 +32,26 @@ export const GET_EVENTS = gql`
       title
       _id
     }
-  }
-`;
+  }`;
 
-export const GET_SAVED_EVENTS = gql`
-  query SavedEvents($userId: ID!) {
-    user(userId: $userId) {
+  export const QUERY_ME = gql`
+  query me {
+    me {
       _id
-      savedEvents {
-        title
-        description
-        date
-        location
-        savedBy
-      }
+      username
+      email
+      savedEvents
     }
   }
 `;
+
+export const GET_EVENT = gql`
+query Query($eventId: ID!) {
+  event(eventId: $eventId) {
+    _id
+    date
+      description
+      location
+      title
+  }
+}`;

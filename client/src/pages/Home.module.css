@@ -1,5 +1,13 @@
+.cardBody{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
 .customCardBody {
-    background-color: grey;
+    background-color: #605b5b;
     margin: 20px;
     border: 5px solid purple;
+    max-width: 300px;
+    padding: 15px;
 }   

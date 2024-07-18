@@ -28,6 +28,12 @@ const resolvers = {
     category: async (_, { categoryId }) => {
       return Category.findOne({_id: categoryId});
     },
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOne({ _id: context.user._id });
+      }
+      throw AuthenticationError;
+    }
   },
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
@@ -60,21 +66,26 @@ const resolvers = {
       const category = await Category.create({ name });
       return category;
     },
-    saveEvent: async (_, { eventId, userId }) => {
-      return await User.findByIdAndUpdate
+
+    saveEvent: async (_, { eventId }, context) => {
+      if(context.user){
+        return await User.findOneAndUpdate
         (
-          userId,
+          {_id: context.user._id},
           { $addToSet: { savedEvents: eventId } },
           { new: true }
-        ).populate('savedEvents');
+        );
+      }
+      throw AuthenticationError;
     },
-    removeEvent: async (_, { eventId, userId }) => {
-      return await User.findByIdAndUpdate
+
+    removeEvent: async (_, { eventId },context) => {
+      return await User.findOneAndUpdate
         (
-          userId,
+          {_id: context.user._id},
           { $pull: { savedEvents: eventId } },
           { new: true }
-        ).populate('savedEvents');
+        );
     }
 
   },
