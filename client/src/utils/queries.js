@@ -44,3 +44,14 @@ export const GET_EVENTS = gql`
     }
   }
 `;
+
+export const GET_EVENT = gql`
+query Query($eventId: ID!) {
+  event(eventId: $eventId) {
+    _id
+    date
+      description
+      location
+      title
+  }
+}`;

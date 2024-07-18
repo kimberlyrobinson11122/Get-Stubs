@@ -1,33 +1,52 @@
 import React from 'react';
-import { useQuery } from '@apollo/client';
+import { useState, useEffect } from 'react';
+import { useQuery, useLazyQuery } from '@apollo/client';
 //import { GET_SAVED_EVENTS } from '../utils/queries';
+import { GET_EVENT, QUERY_ME, GET_USER } from '../utils/queries';
 import Auth from '../utils/auth';
+import styles from "./Home.module.css";
 
-const Profile = ({ userId }) => {
-  // const { data, loading, error } = useQuery(GET_SAVED_EVENTS, {
-  //   variables: { userId },
-  // });
+const Profile = () => {
+  
+  const me = useQuery(QUERY_ME);
+  const userData = me?.data;
+  //console.log(userData);
+  const [savedEvents, setSavedEvents] = useState([]);
+  //console.log(savedEvents);
 
-  // if (loading) return <p>Loading...</p>;
-  // if (error) return <p>Error: {error.message}</p>;
-  console.log(Auth.getProfile());
+  const [getEvent, { loading, error, data }] = useLazyQuery(GET_EVENT);
 
+  const mySavedEventIds = (userData?.me.savedEvents || []);
+  //console.log(mySavedEventIds);
+
+  useEffect(() => {
+    if (mySavedEventIds.length > 0) {
+      (async () => {
+        for (const eventId of mySavedEventIds) {
+          console.log("Event ID: " + eventId);
+          const result = await getEvent({variables: {eventId} });
+          //console.log(result.data.event);
+          setSavedEvents((savedEvents) => [...savedEvents, {key: result.data.event}]);
+        }
+      })();
+    }
+  }, [mySavedEventIds]);
+  
   return (
     <div className="card bg-white card-rounded w-25">
       <div className="card-header bg-dark text-center">
         <h1>Welcome to your profile!</h1>
+        <h2>Here are your saved events</h2>
       </div>
-      <div className="card-body m-5">
-        <h2>Here are your saved events:</h2>
-        {/* {data.user.savedEvents.map(event => (
-          <div key={event.id}>
-            <h3>{event.title}</h3>
-            <p>{event.description}</p>
-            <p>Date: {new Date(parseInt(event.date)).toLocaleDateString()}</p>
-            <p>Location: {event.location}</p>
-            <p>Saved By: {event.savedBy}</p>
+      <div className={`card-body ${styles.cardBody}`}>
+        {savedEvents.map(event => (
+          <div key={event.key._id} className={`event-card ${styles.customCardBody}`}>
+            <h3>{event.key.title}</h3>
+            <p>{event.key.description}</p>
+            <p>Date: {new Date(parseInt(event.key.date)).toLocaleDateString()}</p>
+            <p>Location: {event.key.location}</p>
           </div>
-        ))} */}
+        ))}
       </div>
     </div>
   );
