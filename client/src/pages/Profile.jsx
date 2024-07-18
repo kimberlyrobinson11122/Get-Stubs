@@ -61,7 +61,13 @@ const Profile = () => {
     <div className="card bg-white card-rounded w-25">
       <div className="card-header bg-dark text-center">
         <h1>Welcome to your profile!</h1>
-        <h2>Here are your saved events</h2>
+        {savedEvents.length == 0 && 
+          <h2>You have not saved any events yet.</h2>
+        }
+        {savedEvents.length > 0 &&
+          <h2>Here are your saved events</h2>
+        }
+        
       </div>
       <div className={`card-body ${styles.cardBody}`}>
         {savedEvents.map(event => (

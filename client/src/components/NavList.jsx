@@ -42,7 +42,9 @@ const NavList = () => {
             .filter(item => item.name !== "Admin" || user) // Only show Admin if user is logged in
             .map(item => (
               <li className="nav__item" key={item.name}>
-                <NavLink to={item.url} className="nav__link active" onClick={closeMenuOnMobile}>
+                <NavLink to={item.url} className="nav__link"
+                activeclassname="active"
+                onClick={closeMenuOnMobile}>
                   {item.name}
                 </NavLink>
               </li>
