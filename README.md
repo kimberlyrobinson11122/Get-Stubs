@@ -9,7 +9,7 @@
 
 Screenshot of the first build:
 
-![screen shot of initial build](./assets/)
+![screen shot of initial build](https://github.com/kimberlyrobinson11122/Get-Stubs/blob/main/Get%20Stubs%20Initial%20Build%20Image%20v.1.png)
 
 ## Table of Contents
 
