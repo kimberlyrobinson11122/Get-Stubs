@@ -3,7 +3,7 @@
 #### [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 
 ## Deployed Application
-[Deployed Code (click here)]
+[Deployed Code ([click here](https://get-stubs-32478408ec54.herokuapp.com/))]
 
 ## Images
 
