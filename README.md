@@ -84,7 +84,7 @@ If you have any questions or encounter any issues, please don't hesitate to cont
 Email: TeamGroove@me.com
 
 ## Credits
-The project was started from scratch and developed iteratively or with starter code. ==(Must edit this section)==
+The project was started from scratch and developed iteratively.
 
 ## License
 This application/project is covered under the MIT License.
