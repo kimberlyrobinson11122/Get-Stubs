@@ -72,9 +72,13 @@ This is in a steady state until feature requests are submitted to the above emai
 If you have any questions or encounter any issues, please don't hesitate to contact me through either of the following methods:
 
 [GitHub Profile - Kimberly Robinson](https://github.com/kimberlyrobins11122)
+
 [GitHub Profile - Chandrika Sista](https://github.com/cguntur)
+
 [GitHub Profile - Chadi Hoyek](https://github.com/Chadoyek)
+
 [GitHub Profile - Reed Sandbach](TBD)
+
 [GitHub Profile - Seth Jackson](https://github.com/themuppetman)
 
 Email: me@me.com
