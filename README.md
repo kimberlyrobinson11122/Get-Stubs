@@ -9,7 +9,7 @@
 
 Screenshot of the first build:
 
-placeholder ![screen shot of initial build](./assets/)
+![screen shot of initial build](./assets/)
 
 ## Table of Contents
 
