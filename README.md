@@ -77,7 +77,7 @@ If you have any questions or encounter any issues, please don't hesitate to cont
 
 [GitHub Profile - Chadi Hoyek](https://github.com/Chadoyek)
 
-[GitHub Profile - Reed Sandbach](TBD)
+[GitHub Profile - Reed Sandbach](https://github.com/ssandbac)
 
 [GitHub Profile - Seth Jackson](https://github.com/themuppetman)
 
