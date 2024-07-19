@@ -81,7 +81,7 @@ If you have any questions or encounter any issues, please don't hesitate to cont
 
 [GitHub Profile - Seth Jackson](https://github.com/themuppetman)
 
-Email: me@me.com
+Email: TeamGroove@me.com
 
 ## Credits
 The project was started from scratch and developed iteratively or with starter code. ==(Must edit this section)==
